@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/Sraavan/ETHWaterloo2k19#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "image-downloader": "^3.5.0",
     "nodemon": "^1.19.4"
   }
 }

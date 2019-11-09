@@ -1,4 +1,6 @@
 {
     "port": 3000,
-    "baseUrl": "http://localhost:3000"
+    "baseUrl": "http://localhost:3000",
+    "imageDownloadUrl": "http://172.31.204.136:8080/shot.jpg",
+    "imageDestinationPath": "modelPic.jpg"
   }
