@@ -4,11 +4,14 @@ const services = require('../services/services')
 var cors = require('cors');
 
 module.exports = function () {
-    var router = express.Router()
-    router.use(express.static(process.cwd() + '/public/dist/public'));
-    app.use(cors());
-    app.use(router)
+    // var router = express.Router()
+    // router.use(express.static(process.cwd() + '/public/dist/public'));
 
+    app.use(cors());
+    app.use('', express.static(process.cwd() + '/public/dist/public'));
+    app.use('/public', express.static(process.cwd() + '/server/public'));
+
+    // ----------------------------------- API -----------------------------------
     app.get('/api/GetImage', (req, res) => {
         let result;
         services.getImage().then(result => {
@@ -18,6 +21,6 @@ module.exports = function () {
                 res.jsonp({ "result": "Failed to download image" })
             }
         });
-
     })
+
 }

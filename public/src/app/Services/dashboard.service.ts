@@ -8,6 +8,8 @@ import { of } from 'rxjs';
 })
 export class DashboardService {
 
+  BaseUrl = 'http://localhost:3000/';
+  ServerStaticPageBaseUrl = 'http://localhost:3000/public/';
   ApiBaseUrl = 'http://localhost:3000/api/';
 
   constructor(private http: HttpClient) { }
@@ -19,5 +21,10 @@ export class DashboardService {
         return of('Failed to get image');
       })
     );
+  }
+
+  public LoadLoginPage() {
+    const url = this.ServerStaticPageBaseUrl + 'Dashboard';
+    document.location.href = url;
   }
 }
