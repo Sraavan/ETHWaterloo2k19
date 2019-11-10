@@ -4,16 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fortmatic@latest/dist/fortmatic.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="dash.css">
+        <script>
+            var flattr_url = 'http://hakim.se/experiments/html5/trail/03/';
+            var flattr_btn='compact';
+            </script>
+
 </head>
 <body>
-    <h1>Dashboard</h1>
-    <br>
-    <button onclick="GetImage()">Capture image</button>
-    <button onclick="GetNumberOfAssets()">Get Number of Assets</button>
-    <button onclick="Logout()">Logout</button>
+        <canvas id="world" style="left:0px; right: 0px; top:0px; bottom:0px;"><p class="noCanvas">You need a <a href="https://www.google.com/chrome">modern browser</a> to view this.</p></canvas>
+        <div class="container">
+                <div class="box box-1">
+                    <div class="cover"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/News_camera_%28with_transparent_background%29.png" alt=""></div>
+                    <button onclick="GetImage()"><div></div></button>
+                </div>
+                <div class="box box-2">
+                    <div class="cover"><img src="https://webstockreview.net/images/wallet-clipart-animated-gif-13.gif" alt=""></div>
+                    <button onclick="GetNumberOfAssets()"><div></div></button>
+                </div>
+                <div class="box box-3">
+                    <div class="cover"><img src="https://cdn.worldvectorlogo.com/logos/ethereum-gold.svg" alt="https://www.ethereum.org/assets/img/eth-diamond.0020ce37.png"></div>
+                    <button><div></div></button>
+                </div>
+                <div class="box box-4">
+                    <div class="cover"><img src="http://www.pngmart.com/files/1/Goodbye-PNG-Image.png" alt=""></div>
+                    <button onclick="Logout()"><div></div></button>
+                </div>
+        
+            </div>
+        
+       
     <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script><script src="trail.js"></script>
+
+
+   
 </body>
 </html>
