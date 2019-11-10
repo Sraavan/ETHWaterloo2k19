@@ -82,7 +82,7 @@ App = {
     addGreenAsset: async (latitude, longitude) => {
         let sLocation = `${latitude}:${longitude}`
         const res = await App.greenContract.addGreenAsset('Tree', sLocation, App.account)
-        alert(`Green: ${res}`)
+        alert(`Added green asset successfully`)
     },
 
     logout: async () => {
