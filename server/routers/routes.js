@@ -4,14 +4,19 @@ const services = require('../services/services')
 var cors = require('cors');
 
 module.exports = function () {
-    // var router = express.Router()
-    // router.use(express.static(process.cwd()xz + '/public/dist/public'));
+    var router = express.Router()
 
     app.use(cors());
-    app.use('', express.static(process.cwd() + '/public/dist/public'));
+    
+    // app.use('', express.static(process.cwd() + '/public/dist/public'));
     app.use('/public', express.static(process.cwd() + '/server/public'));
     app.use('/vendor', express.static(process.cwd()+ '/node_modules'));
     app.use('/contracts', express.static(process.cwd()+ '/contract/build/contracts'))
+
+    app.get('/', function (req, res) {
+        res.redirect('/public/Login')
+    });
+
     // ----------------------------------- API -----------------------------------
     app.get('/api/GetImage', (req, res) => {
         let result;

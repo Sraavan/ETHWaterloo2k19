@@ -34,3 +34,8 @@ function addGreenAsset() {
     App.addGreenAsset(latitude, longitude)
 
 }
+
+
+function navDashboard(){
+    document.location.href = '../dashboard'
+}

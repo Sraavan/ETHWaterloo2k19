@@ -4,6 +4,10 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<script src="https://cdn.jsdelivr.net/npm/fortmatic@latest/dist/fortmatic.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+		<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/vendor/truffle-contract/dist/truffle-contract.js"></script>
+
 		<!-- Name of the app -->
 		<title>FloodChain</title>
 
@@ -17,6 +21,7 @@
 		<p id="demo"></p>
 		</div>
 		<div>
+		<button type="button" class="btn btn-primary" onclick="navDashboard()">Dashboard</button>
 			
 		<!-- Camera -->
 		<main id="camera">
@@ -34,9 +39,6 @@
 		    <button id="camera--trigger">Take a picture</button>
 		</main>		
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
-		<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="/vendor/truffle-contract/dist/truffle-contract.js"></script>
 
 		<script src="cameraApp.js"></script> 
 		<script src="../main.js"></script>
