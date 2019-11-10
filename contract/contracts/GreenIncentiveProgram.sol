@@ -1,4 +1,4 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.8;
 
 contract GreenIncentiveProgram {
 
@@ -11,7 +11,8 @@ contract GreenIncentiveProgram {
     string propertyLocation; //location of the owner of the property
 
     mapping(address => GreenAsset[]) public greenAssets;
-
+    mapping(address => uint) public balance;
+    
     modifier ownerOnly(){
         if(msg.sender != owner) revert();
         _;
@@ -26,22 +27,23 @@ contract GreenIncentiveProgram {
         propertyLocation = location;
     }
 
-    function addGreenAsset(string memory name, string memory location) public returns(bool){
+    function addGreenAsset(string memory name, string memory location, address sender) public returns(bool){
         GreenAsset memory incomingGreenAsset = GreenAsset(name, location);
-        greenAssets[msg.sender].push(incomingGreenAsset);
+        greenAssets[sender].push(incomingGreenAsset);
+        balance[sender] += 98;
         return true;
     }
 
-    function getNumberofGreenAssets() public view returns (uint){
-        return greenAssets[msg.sender].length;
+    function getNumberofGreenAssets(address sender) public view returns (uint){
+        return greenAssets[sender].length;
     }
 
     function getLocation() public view returns (string memory) {
         return propertyLocation;
     }
 
-    function getBalance() public view returns (uint) {
-        return address(this).balance;
+    function getBalance(address sender) public view returns (uint) {
+        return balance[sender];
     }
 
     function withdraw(uint amount) ownerOnly public {
