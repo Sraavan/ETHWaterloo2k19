@@ -5,8 +5,9 @@
     <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fortmatic@latest/dist/fortmatic.js"></script>
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/html">
+
     <link rel="stylesheet" href="styles.css">
   </head>
 
@@ -16,10 +17,23 @@
       
       <h1>Login here</h1>
       <div class="divider"></div>
-      <input id="btn-send" type="button" value="Login" onclick="login()" />
+      <input id="btn-send" type="button" value="Login" onclick="loginWeb3()" />
     </div>
 
-    <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/vendor/web3/dist/web3.min.js"></script>
+    <script src="/vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="../main.js"></script>
+
+    <script>
+      async function loginWeb3(){
+        await App.loadWeb3();
+        if (App.checkIfUserIsLoggedIn()){
+          document.location.href = "../dashboard";
+        }
+      }
+    </script>
   </body>
 
 </html>

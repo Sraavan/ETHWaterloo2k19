@@ -14,31 +14,33 @@ App = {
             App.web3Provider = web3.currentProvider
             web3 = new Web3(web3.currentProvider)
         } else {
-            window.alert("Please connect to Metamask.")
+            console.log("Not connected to metamask")
         }
         // Modern dapp browsers...
         if (window.ethereum) {
             window.web3 = new Web3(ethereum)
             try {
                 await ethereum.enable()
-                // web3.eth.sendTransaction({/* ... */ })
+                web3.eth.sendTransaction({/* ... */ })
             } catch (error) {
                 // User denied account access...
             }
-        } else {
-            window.web3 = new Web3(fm.getProvider());
-        }
+        } 
         
         // Legacy dapp browsers...
-        if (window.web3) {
+        else if (window.web3) {
             App.web3Provider = web3.currentProvider
             window.web3 = new Web3(web3.currentProvider)
-            // web3.eth.sendTransaction({/* ... */ })
+            web3.eth.sendTransaction({/* ... */ })
         }
         // Non-dapp browsers...
         else {
-            App.web3Provider = fm.getProvider()
-            window.web3 = new Web3(fm.getProvider());
+            App.web3Provider = App.fm.getProvider()
+            window.web3 = new Web3(App.fm.getProvider());
+            App.fm.user.login().then((err, res) => {
+                if (!err){
+                }
+            })
             // console.log('Non-Ethereum browser detected. You should consider trying MetaMask!')
         }
     },
@@ -57,28 +59,33 @@ App = {
         // Hydrate the smart contract with values from the blockchain
         App.greenContract = await App.contracts.GreenContract.deployed()
     },
-
     getBalance: async () => {
         const balance = await App.greenContract.balance(App.account)
         alert(`Balance: ${balance}`)
     },
 
-    getImage: async() => {
+    getImage: async () => {
         document.location.href = '../ImageCapture';
     },
 
-    getNumberOfAssets: async() => {
+    getNumberOfAssets: async () => {
         const res = await App.greenContract.getNumberofGreenAssets(App.account)
         alert(`Assets: ${res}`)
     },
+    
+    checkIfUserIsLoggedIn: async () => {
+        web3.eth.getAccounts().then(accounts => {
+            return !(accounts.length == 0)
+        })
+    },
 
-    addGreenAsset: async(latitude, longitude) => {
+    addGreenAsset: async (latitude, longitude) => {
         let sLocation = `${latitude}:${longitude}`
         const res = await App.greenContract.addGreenAsset('Tree', sLocation, App.account)
         alert(`Green: ${res}`)
     },
 
-    logout: async() => {
+    logout: async () => {
         App.fm.user.logout();
         document.location.href = '../Login';
     }
