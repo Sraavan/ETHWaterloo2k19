@@ -279,7 +279,7 @@ button::before {
 }
 
 .box-2 button div::before {
-    content: 'My Wallet';
+    content: 'My Asset Count';
     position: relative;
     top: -44px;
     left: -6px;
@@ -293,7 +293,7 @@ button::before {
 }
 
 .box-3 button div::before {
-    content: 'Ether';
+    content: 'Virtual Ether';
     position: relative;
     top: -44px;
     left: 3px;
