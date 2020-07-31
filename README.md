@@ -1,5 +1,7 @@
 # ETHWaterloo2k19
 
+Check the [devpost](https://devpost.com/software/flood-chain-mg7rdi) page for updates on this project
+
 ## For running locally:
 
 * npm i 
